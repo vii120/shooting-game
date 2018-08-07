@@ -1,0 +1,58 @@
+//person
+@keyframes intro-bad
+  0%
+    opacity: 0
+    left: 150px
+  100%
+    opacity: 1
+    left: -20px
+@keyframes intro-good
+  0%
+    opacity: 0
+    right: 150px
+  100%
+    opacity: 1
+    right: -20px
+
+//stuff
+@keyframes intro-badstuff
+  0%
+    opacity: 0
+    top: 100px
+    right: 100px
+  100%
+    opacity: 1
+    top: 0
+    right: 0
+@keyframes intro-goodstuff
+  0%
+    opacity: 0
+    top: 100px
+    left: 100px
+  100%
+    opacity: 1
+    top: 0
+    left: 0
+
+//flash
+@keyframes flash
+  0%
+    opacity: 0
+    transform: translateX(-50%) scale(0.5)
+  50%
+    opacity: 1
+    transform: translateX(-50%) scale(1)
+  100%
+    opacity: 0
+    transform: translateX(-50%) scale(0.5)
+
+//game: temp score
+@keyframes score
+  0%
+    opacity: 0
+    top: 30px
+  50%
+    opacity: 1
+  100%
+    opacity: 0
+    top: 5px
