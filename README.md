@@ -1,6 +1,6 @@
 # Shooting Game! 打擊犯罪之射擊遊戲
 
-![home]](https://i.imgur.com/S27dN3Y.png)
+![home](https://i.imgur.com/S27dN3Y.png)
 
 ## Demo
 
