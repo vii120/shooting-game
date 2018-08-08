@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*------------------- */
 /* $Catalog */
 /*------------------- */
@@ -22,7 +23,7 @@
   }
   100% {
     opacity: 1;
-    left: -20px;
+    left: -15px;
   }
 }
 @keyframes intro-bad {
@@ -32,7 +33,7 @@
   }
   100% {
     opacity: 1;
-    left: -20px;
+    left: -15px;
   }
 }
 @-webkit-keyframes intro-good {
@@ -42,7 +43,7 @@
   }
   100% {
     opacity: 1;
-    right: -20px;
+    right: -15px;
   }
 }
 @keyframes intro-good {
@@ -52,7 +53,7 @@
   }
   100% {
     opacity: 1;
-    right: -20px;
+    right: -15px;
   }
 }
 @-webkit-keyframes intro-badstuff {
@@ -163,6 +164,46 @@
     top: 5px;
   }
 }
+@-webkit-keyframes ending-img {
+  0% {
+    -webkit-transform: rotate(3deg);
+            transform: rotate(3deg);
+  }
+  100% {
+    -webkit-transform: rotate(-3deg);
+            transform: rotate(-3deg);
+  }
+}
+@keyframes ending-img {
+  0% {
+    -webkit-transform: rotate(3deg);
+            transform: rotate(3deg);
+  }
+  100% {
+    -webkit-transform: rotate(-3deg);
+            transform: rotate(-3deg);
+  }
+}
+@-webkit-keyframes ending-text {
+  0%, 33% {
+    top: -100px;
+    left: -150px;
+  }
+  66%, 100% {
+    top: -50px;
+    left: calc(100% + 100px);
+  }
+}
+@keyframes ending-text {
+  0%, 33% {
+    top: -100px;
+    left: -150px;
+  }
+  66%, 100% {
+    top: -50px;
+    left: calc(100% + 100px);
+  }
+}
 /*------------------- */
 /* $Global */
 /*------------------- */
@@ -175,14 +216,15 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "PT Sans", "sans-serif";
+  font-family: "PT Sans", "sans-serif", "微軟正黑體";
   background-color: #f2f2f2;
 }
 
 .container {
   max-width: 960px;
-  margin: 16px auto;
+  margin: 0 auto;
   padding: 0 16px;
+  overflow: hidden;
 }
 
 /*------------------- */
@@ -195,6 +237,7 @@ header {
 .title {
   font-size: 40px;
   font-family: "Alfa Slab One", "cursive";
+  margin-top: 16px;
 }
 @media (max-width: 768px) {
   .title {
@@ -225,7 +268,7 @@ header {
 }
 @media (max-width: 768px) {
   .imgBox .bad, .imgBox .good {
-    margin-top: 15px;
+    width: 100%;
   }
 }
 .imgBox .bad {
@@ -266,6 +309,7 @@ header {
 }
 
 .mainBtn {
+  margin-top: 16px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -294,8 +338,11 @@ header {
   }
 }
 
+.introText {
+  line-height: 24px;
+}
+
 .scoreBoard {
-  color: #ce2525;
   font-weight: bold;
   font-size: 24px;
   margin: 8px 0;
@@ -304,6 +351,9 @@ header {
   .scoreBoard {
     font-size: 18px;
   }
+}
+.scoreBoard span {
+  color: #ce2525;
 }
 
 .msgBox {
@@ -317,6 +367,7 @@ header {
 .gameBoard {
   max-width: 720px;
   margin: 0 auto;
+  margin-bottom: 24px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -358,6 +409,7 @@ header {
   -webkit-animation: score 0.7s both;
           animation: score 0.7s both;
   border-bottom: 5px solid;
+  z-index: 100;
 }
 @media (max-width: 768px) {
   .hideout.scoreAdd:before, .hideout.scoreMinus:before {
@@ -379,7 +431,7 @@ header {
 }
 @media (max-width: 768px) {
   .hideout.upBad .badguy, .hideout.upGood .friend {
-    top: 1vh;
+    top: 0;
   }
 }
 
@@ -397,7 +449,7 @@ header {
 }
 @media (max-width: 768px) {
   .bricks {
-    height: 70px;
+    height: 60px;
   }
 }
 
@@ -420,7 +472,7 @@ header {
 @media (max-width: 768px) {
   .badguy, .friend {
     top: 130px;
-    height: 95%;
+    width: 100%;
   }
 }
 
@@ -438,33 +490,31 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.6);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
   z-index: 150;
 }
 .result span {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  display: block;
   width: 80%;
+  margin: 0 auto;
   padding: 16px 0;
-  text-align: center;
   font-size: 40px;
   font-weight: bold;
   background-color: #df8931;
   border-bottom: 10px solid #aa530e;
   border-radius: 16px;
-  z-index: 200;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  overflow: hidden;
 }
 @media (max-width: 768px) {
   .result span {
@@ -472,10 +522,26 @@ header {
     padding: 8px 0;
   }
 }
+.result span:before {
+  content: "";
+  position: absolute;
+  width: 10%;
+  height: 300%;
+  background-color: rgba(255, 255, 255, 0.2);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  -webkit-animation: ending-text 2.4s 0.3s both infinite;
+          animation: ending-text 2.4s 0.3s both infinite;
+}
 .result img {
   display: block;
-  margin-right: 12px;
-  width: 10%;
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 24px;
+  -webkit-filter: drop-shadow(5px 5px 8px rgba(0, 0, 0, 0.6));
+          filter: drop-shadow(5px 5px 8px rgba(0, 0, 0, 0.6));
+  -webkit-animation: ending-img 0.5s linear both infinite alternate;
+          animation: ending-img 0.5s linear both infinite alternate;
 }
 
 /*# sourceMappingURL=style.css.map */

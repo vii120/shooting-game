@@ -1,20 +1,24 @@
-//person
+//--------------------------
+// Home: character
+//--------------------------
 @keyframes intro-bad
   0%
     opacity: 0
     left: 150px
   100%
     opacity: 1
-    left: -20px
+    left: -15px
 @keyframes intro-good
   0%
     opacity: 0
     right: 150px
   100%
     opacity: 1
-    right: -20px
+    right: -15px
 
-//stuff
+//--------------------------
+// Home: character's stuff
+//--------------------------
 @keyframes intro-badstuff
   0%
     opacity: 0
@@ -34,7 +38,9 @@
     top: 0
     left: 0
 
-//flash
+//--------------------------
+// Home: sparkles
+//--------------------------
 @keyframes flash
   0%
     opacity: 0
@@ -46,7 +52,9 @@
     opacity: 0
     transform: translateX(-50%) scale(0.5)
 
-//game: temp score
+//--------------------------
+// Game: score changing
+//--------------------------
 @keyframes score
   0%
     opacity: 0
@@ -56,3 +64,23 @@
   100%
     opacity: 0
     top: 5px
+
+//--------------------------
+// Game: ending icon
+//--------------------------
+@keyframes ending-img
+  0%
+    transform: rotate(3deg)
+  100%
+    transform: rotate(-3deg)
+
+//--------------------------
+// Game: ending text
+//--------------------------
+@keyframes ending-text
+  0%, 33%
+    top: -100px
+    left: -150px
+  66%, 100%
+    top: -50px
+    left: calc(100% + 100px)

@@ -10,11 +10,11 @@ let gameOver = false;
 let score;
 let hideoutNum = 9;
 
-//start game!
 startBtn.addEventListener('click', gameStart);
 homeBtn.addEventListener('click', backtoHome);
 homeBtn.style.display = 'none';
 
+//start game!
 function gameStart(){
   gameOver = false;
   startBtn.style.display = 'none';
@@ -27,7 +27,7 @@ function gameStart(){
   scoring();
 }
 
-//set game board
+//set gameboard layout
 function setGameboard(){
   gameBoard.innerHTML = '';
   for (let i=0; i<hideoutNum; i++){
@@ -49,6 +49,7 @@ function setGameboard(){
   }
 }
 
+//set popup character
 function startPopup(){
   let hideoutID = randomUp();
   let temp = Math.floor(Math.random()*10);
@@ -61,6 +62,7 @@ function startPopup(){
   }, time);
 }
 
+//set popup time
 function randomUp(){
   let allHideout = document.querySelectorAll('.hideout');
   const random = Math.floor(Math.random()*allHideout.length);
@@ -71,7 +73,7 @@ function randomUp(){
   return allHideout[random];
 }
 
-//shooting function
+//shooting reaction
 function shotBadguy(){
   msgbox.innerHTML = 'Yeah! You shoot the bag guy!';
   score += 10;
@@ -95,34 +97,41 @@ function shotFriend(){
   scoring();
 }
 
+//counting score
+let topScore = 100;
 function scoring(){
-  scoreBoard.innerHTML = `Score: ${score}`;
-  let topScore = 100;
-  let msg = score>=topScore?'You win!':'You lose!';
+  scoreBoard.innerHTML = `Score: <span>${score}</span> / ${topScore}`;
   if (score >= topScore || score < 0){
-    gameOver = true;
-    startBtn.style.display = 'block';
-    startBtn.innerHTML = 'Again!';
-    clearTimeout();
-    let div = document.createElement('div');
-    let span = document.createElement('span');
-    div.setAttribute('class', 'result');
-    span.innerHTML = msg;
-    let img = document.createElement('img');
-    let imgSrc = score>=topScore?'images/handcuffs.png':'images/thief.png';
-    img.setAttribute('src',imgSrc);
-    span.insertAdjacentElement('afterbegin', img);
-    div.appendChild(span);
-    gameBoard.appendChild(div);
-    homeBtn.style.display = 'block';
+    gameover()
   }
 }
 
+//gameover
+function gameover(){
+  let msg = score>=topScore?'You win!':'You lose!';
+  gameOver = true;
+  startBtn.innerHTML = 'Again!';
+  startBtn.style.display = 'block';
+  homeBtn.style.display = 'block';
+  clearTimeout();
+  let result = document.createElement('div');
+  let resultSpan = document.createElement('span');
+  result.setAttribute('class', 'result');
+  resultSpan.innerHTML = msg;
+  let img = document.createElement('img');
+  let imgSrc = score>=topScore?'images/handcuffs.png':'images/thief.png';
+  img.setAttribute('src',imgSrc);
+  result.appendChild(img);
+  result.appendChild(resultSpan);
+  gameBoard.appendChild(result);
+}
+
+//back to home
 function backtoHome(){
-  gameBoard.innerHTML = '';
+  intro.style.display = 'block';
   startBtn.innerHTML = 'Start!';
   scoreBoard.innerHTML = '';
   msgbox.innerHTML = '';
-  intro.style.display = 'block';
+  gameBoard.innerHTML = '';
   homeBtn.style.display = 'none';
 }
