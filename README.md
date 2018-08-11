@@ -14,4 +14,5 @@ https://vii120.github.io/shooting-game/
 
 ### CSS preprocessor
 
- 使用**SASS**撰寫
+使用**SASS**撰寫
+
