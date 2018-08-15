@@ -12,7 +12,9 @@ https://vii120.github.io/shooting-game/
 
 好人與壞人出現的位置及時間皆為隨機變數
 
-### CSS preprocessor
+### Tools
 
-使用**SASS**撰寫
+HTML：使用**Pug**撰寫
+
+CSS：使用**SASS**撰寫
 
