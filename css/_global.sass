@@ -1,0 +1,73 @@
+//*-------------------*/
+//* $Catalog
+//*-------------------*/
+//* $Catalog
+//* $Font
+//* $Variables
+//* $Custom Styles
+//* $Global
+
+/*-------------------*/
+/* $Font
+/*-------------------*/
+@import url('https://fonts.googleapis.com/css?family=PT+Sans')
+@import url('https://fonts.googleapis.com/css?family=Alfa+Slab+One')
+
+//*-------------------*/
+//* $Variables
+//*-------------------*/
+//color
+$primary-color: #aa530e
+$secondary-color: #eaa966
+$important-color: #ce2525
+$less-important-color: #fda7a7
+$success-color: #1c890c
+$less-success-color: #c0eaba
+$white: #fff
+$main-bg: #f2f2f2
+//font
+$main-font: 'PT Sans', 'sans-serif', '微軟正黑體'
+$title-font: 'Alfa Slab One', 'cursive'
+$h1-font: 40px
+$h2-font: 24px
+$h1-font-md: 30px
+$h2-font-md: 18px
+
+//*-------------------*/
+//* $Custom Styles
+//*-------------------*/
+@mixin btn
+  width: 120px
+  margin: 0 8px
+  padding: 8px 0
+  background-color: $primary-color
+  color: $white
+  font-size: $h2-font
+  font-weight: bold
+  border-radius: 16px
+  border-bottom: 5px solid $secondary-color
+  outline: none
+  cursor: pointer
+  transition: all .2s
+  @media (max-width: 768px)
+    width: 100px
+    font-size: $h2-font-md
+  &:active
+    transform: translate(2px, 2px)
+
+/*-------------------*/
+/* $Global
+/*-------------------*/
+*
+  position: relative
+  box-sizing: border-box
+body
+  margin: 0
+  padding: 0
+  font-family: $main-font
+  background-color: $main-bg
+.container
+  max-width: 960px
+  margin: 0 auto
+  padding: 0 16px
+  overflow: hidden

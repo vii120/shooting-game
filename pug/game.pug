@@ -1,0 +1,48 @@
+mixin character()
+  .hideout
+    .badguy
+    .friend
+    .bricks
+
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    meta(name="description", content="shooting game with javascript")
+    title Fight against crime! | Shooting Game
+    link(rel="stylesheet",type="text/css", href="css/game.css")
+    link(rel="icon",type="image/png", href="images/icon.png")
+    script(src="https://www.gstatic.com/firebasejs/5.4.0/firebase.js")
+    script.
+      var config = {
+        apiKey: "AIzaSyAFe70UVGcavSrQ4i9LPByO4CG4j7U5xTI",
+        authDomain: "shooting-9f0fa.firebaseapp.com",
+        databaseURL: "https://shooting-9f0fa.firebaseio.com",
+        projectId: "shooting-9f0fa",
+        storageBucket: "shooting-9f0fa.appspot.com",
+        messagingSenderId: "255742526775"
+      };
+      firebase.initializeApp(config);
+  body
+    .container
+      header
+        .scoreBoard
+        .mainBoard
+          .scoreBox
+          .timeBox
+        .msgBox
+        .gameBoard
+          - for(let i=0; i<9; i++)
+            +character()
+          .result
+            img(src="").resultImg
+            .resultText
+            .inputBox
+              input(type="text", placeholder="enter your name!", maxlength=10).winnerName
+              input(type="submit" value="submit").submit
+            .btn-gp
+              .again Again!
+              a(href="index.html").tohome Home
+    script(src="js/game.js")

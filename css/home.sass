@@ -1,0 +1,128 @@
+/*-------------------*/
+/* $Catalog
+/*-------------------*/
+/* $Catalog
+/* $Font
+/* $Animatios
+/* $Global
+/* $Main
+
+//*------------------------*/
+//* $Import Global Setting
+//*------------------------*/
+@import '_global.sass'
+
+/*-------------------*/
+/* $Animatios
+/*-------------------*/
+// character
+@keyframes intro-bad
+  0%
+    opacity: 0
+    left: 150px
+  100%
+    opacity: 1
+    left: -8px
+@keyframes intro-good
+  0%
+    opacity: 0
+    right: 150px
+  100%
+    opacity: 1
+    right: -8px
+
+// character's stuff
+@keyframes intro-badstuff
+  0%
+    opacity: 0
+    top: 100px
+    right: 100px
+  100%
+    opacity: 1
+    top: 0
+    right: 0
+@keyframes intro-goodstuff
+  0%
+    opacity: 0
+    top: 100px
+    left: 100px
+  100%
+    opacity: 1
+    top: 0
+    left: 0
+
+// sparkles
+@keyframes flash
+  0%
+    opacity: 0
+    transform: translateX(-50%) scale(0.5)
+  50%
+    opacity: 1
+    transform: translateX(-50%) scale(1)
+  100%
+    opacity: 0
+    transform: translateX(-50%) scale(0.5)
+
+/*-------------------*/
+/* $Header
+/*-------------------*/
+.main
+  text-align: center
+  margin: 0 auto
+  margin-bottom: 24px
+.title
+  font-size: $h1-font
+  font-family: $title-font
+  margin-top: 16px
+  @media (max-width: 768px)
+    font-size: $h1-font-md
+/*-------------------*/
+/* $Image Box
+/*-------------------*/
+.imgBox
+  width: 100%
+  margin: 32px 0
+  display: flex
+  @media (max-width: 768px)
+    margin: 24px 0
+.person
+  width: 50%
+.bad, .good
+  width: 80%
+  margin-top: 30px
+  z-index: 50
+  @media (max-width: 768px)
+    width: 100%
+.bad
+  animation: intro-bad 1s .5s both
+.good
+  animation: intro-good 1s .5s both
+.badstuff, .goodstuff
+  width: 25%
+  position: absolute
+.badstuff
+  animation: intro-badstuff .8s 1.5s both
+.goodstuff
+  animation: intro-goodstuff .8s 1.5s both
+.flash
+  width: 10%
+  position: absolute
+  top: -30px
+  left: 50%
+  transform: translateX(-50%)
+  z-index: 100
+  animation: flash .6s 2.4s both
+  @media (max-width: 768px)
+    top: -15px
+/*-------------------*/
+/* $Button
+/*-------------------*/
+.btn-gp
+  margin-top: 16px
+  display: flex
+  justify-content: center
+.start, .record
+  display: block
+  text-decoration: none
+  @include btn
+

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="shooting game with javascript">
+    <title>Fight against crime! | Shooting Game</title>
+    <link rel="stylesheet" type="text/css" href="css/record.css">
+    <link rel="icon" type="image/png" href="images/icon.png">
+    <script src="https://www.gstatic.com/firebasejs/5.4.0/firebase.js"></script>
+    <script>
+      var config = {
+        apiKey: "AIzaSyAFe70UVGcavSrQ4i9LPByO4CG4j7U5xTI",
+        authDomain: "shooting-9f0fa.firebaseapp.com",
+        databaseURL: "https://shooting-9f0fa.firebaseio.com",
+        projectId: "shooting-9f0fa",
+        storageBucket: "shooting-9f0fa.appspot.com",
+        messagingSenderId: "255742526775"
+      };
+      firebase.initializeApp(config);
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="title">Shooting Game Record Board</div>
+        <div class="desc">You can leave your name if you beat the top 10!</div>
+      </header>
+      <div class="btn-gp"><a class="tohome" href="index.html">Home</a><a class="start" href="game.html">Game</a></div>
+      <div class="recordBox">
+        <div class="row">
+          <div class="rank"></div>
+          <div class="name"></div>
+          <div class="record"></div>
+        </div>
+        <div class="row">
+          <div class="rank"></div>
+          <div class="name"></div>
+          <div class="record"></div>
+        </div>
+        <div class="row">
+          <div class="rank"></div>
+          <div class="name"></div>
+          <div class="record"></div>
+        </div>
+        <div class="row">
+          <div class="rank"></div>
+          <div class="name"></div>
+          <div class="record"></div>
+        </div>
+        <div class="row">
+          <div class="rank"></div>
+          <div class="name"></div>
+          <div class="record"></div>
+        </div>
+        <div class="row">
+          <div class="rank"></div>
+          <div class="name"></div>
+          <div class="record"></div>
+        </div>
+        <div class="row">
+          <div class="rank"></div>
+          <div class="name"></div>
+          <div class="record"></div>
+        </div>
+        <div class="row">
+          <div class="rank"></div>
+          <div class="name"></div>
+          <div class="record"></div>
+        </div>
+        <div class="row">
+          <div class="rank"></div>
+          <div class="name"></div>
+          <div class="record"></div>
+        </div>
+        <div class="row">
+          <div class="rank"></div>
+          <div class="name"></div>
+          <div class="record"></div>
+        </div>
+      </div>
+    </div>
+    <script src="js/record.js"></script>
+  </body>
+</html>

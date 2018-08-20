@@ -1,0 +1,237 @@
+/*-------------------*/
+/* $Catalog
+/*-------------------*/
+/* $Catalog
+/* $Font
+/* $Animatios
+/* $Global
+//* $Variables
+/* $Header
+/* $Gameboard
+/* $Result
+
+//*------------------------*/
+//* $Import Global Setting
+//*------------------------*/
+@import '_global.sass'
+
+//*-------------------*/
+//* $Variables
+//*-------------------*/
+$board-size: 720px
+$target-size: 220px
+$target-size-md: 130px
+
+/*-------------------*/
+/* $Animatios
+/*-------------------*/
+// score changing
+@keyframes score
+  0%
+    opacity: 0
+    top: 30px
+  50%
+    opacity: 1
+  100%
+    opacity: 0
+    top: 5px
+
+// ending icon
+@keyframes ending-img
+  0%
+    transform: rotate(3deg)
+  100%
+    transform: rotate(-3deg)
+
+// ending text
+@keyframes ending-text
+  0%, 33%
+    top: -100px
+    left: -150px
+  66%, 100%
+    top: -50px
+    left: calc(100% + 100px)
+
+/*-------------------*/
+/* $Header
+/*-------------------*/
+header
+  text-align: center
+.mainBoard
+  max-width: $board-size
+  margin: 0 auto
+  margin-top: 16px
+  display: flex
+  align-items: center
+.scoreBox, .timeBox
+  width: 100%
+  margin: 0 8px 
+  padding: 8px 0
+  border-radius: 16px
+  background-color: $secondary-color
+  font-weight: bold
+  font-size: $h2-font
+  box-shadow: 5px 5px 8px rgba(black, .2)
+  @media (max-width: 768px)
+    font-size: $h2-font-md
+  .highlight
+    color: $important-color
+  .ms
+    font-size: 1rem
+.msgBox
+  font-weight: bold
+  margin: 8px 0
+/*-------------------*/
+/* $Gameboard
+/*-------------------*/
+.gameBoard
+  max-width: $board-size
+  margin: 0 auto
+  margin-bottom: 24px
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+  padding: 0 8px
+  &:before
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background-image: url('../images/parquet.png')
+    opacity: .8
+.hideout
+  height: $target-size
+  width: 33.3334%
+  overflow: hidden
+  @media (max-width: 768px)
+    height: $target-size-md
+  &.scoreAdd:before, &.scoreMinus:before
+    position: absolute
+    right: 0
+    font-size: $h2-font
+    font-weight: bold
+    border-radius: 8px
+    padding: 2px 8px
+    animation: score .7s both
+    border-bottom: 5px solid
+    z-index: 100
+    @media (max-width: 768px)
+      font-size: $h2-font-md
+  &.scoreAdd:before
+    content: '+10!'
+    background-color: $less-success-color
+    border-color: $success-color
+  &.scoreMinus:before
+    content: '-10!'
+    background-color: $less-important-color
+    border-color: $important-color
+  &.upBad .badguy, &.upGood .friend
+    top: 0.5vh
+    @media (max-width: 768px)
+      top: 0
+.bricks
+  background-image: url('../images/grass.png')
+  background-size: cover
+  background-position: center
+  background-repeat: no-repeat
+  position: absolute
+  bottom: 0
+  left: 0
+  width: 100%
+  height: 100px
+  z-index: 100
+  @media (max-width: 768px)
+    height: 60px
+.badguy, .friend
+  background-size: contain
+  background-position: center
+  background-repeat: no-repeat
+  position: absolute
+  top: $target-size
+  left: 50%
+  transform: translateX(-50%)
+  width: 80%
+  height: 100%
+  cursor: crosshair
+  transition: all .5s
+  z-index: 50
+  @media (max-width: 768px)
+    top: $target-size-md
+    width: 100%
+.badguy
+  background-image: url('../images/terrorist.png')
+.friend
+  background-image: url('../images/policeman.png')
+/*-------------------*/
+/* $Result
+/*-------------------*/
+.result
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background-color: rgba(256,256,256,.6)
+  display: flex
+  flex-direction: column
+  justify-content: center
+  text-align: center
+  z-index: 150
+.resultText
+  width: 75%
+  margin: 20px auto
+  padding: 16px 0
+  font-size: $h1-font
+  font-weight: bold
+  background-color: $secondary-color
+  border-bottom: 10px solid $primary-color
+  border-radius: 16px
+  overflow: hidden
+  @media (max-width: 768px)
+      font-size: $h1-font-md
+      padding: 8px 0
+  &:before
+    content: ''
+    position: absolute
+    width: 10%
+    height: 300%
+    background-color: rgba(256,256,256,.2)
+    transform: rotate(45deg)
+    animation: ending-text 2.4s .3s both infinite
+.resultImg
+  display: block
+  width: 50%
+  margin: 0 auto
+  filter: drop-shadow(5px 5px 8px rgba(0,0,0,0.6))
+  animation: ending-img .5s linear both infinite alternate
+.btn-gp
+  margin-top: 20px
+  display: flex
+  justify-content: center
+.again
+  @include btn
+.tohome
+  display: block
+  text-decoration: none
+  @include btn
+.inputBox
+  display: none
+.winnerName
+  width: 50%
+  margin: 0 auto
+  padding: 8px 16px
+  border: none
+  outline: none
+  border-radius: 16px
+  text-align: center
+.submit
+  border: none
+  outline: none
+  padding: 8px 16px
+  border-radius: 16px
+  color: $white
+  background-color: $success-color
+  cursor: pointer
+
