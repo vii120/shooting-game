@@ -249,9 +249,9 @@ header {
 
 .resultText {
   width: 75%;
-  margin: 20px auto;
+  margin: 16px auto;
   padding: 16px 0;
-  font-size: 40px;
+  font-size: 24px;
   font-weight: bold;
   background-color: #eaa966;
   border-bottom: 10px solid #aa530e;
@@ -259,7 +259,7 @@ header {
   overflow: hidden; }
   @media (max-width: 768px) {
     .resultText {
-      font-size: 30px;
+      font-size: 18px;
       padding: 8px 0; } }
   .resultText:before {
     content: "";
@@ -282,7 +282,7 @@ header {
           animation: ending-img 0.5s linear both infinite alternate; }
 
 .btn-gp {
-  margin-top: 20px;
+  margin-top: 16px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

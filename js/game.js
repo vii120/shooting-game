@@ -1,15 +1,17 @@
-var againBtn = document.querySelector('.again');
 var scoreBox = document.querySelector('.scoreBox');
 var timeBox = document.querySelector('.timeBox');
 var msgbox = document.querySelector('.msgBox');
+
 var badguy = document.querySelectorAll('.badguy');
 var friend = document.querySelectorAll('.friend');
 var result = document.querySelector('.result');
+var againBtn = document.querySelector('.again');
+let inputBox = document.querySelector('.inputBox');
 
 let lastHideout = '';
 let gameOver = false;
 let score = 0;
-let topScore = 100;
+let topScore = 10;
 let timeFn = null;
 let timeCount = 0;
 
@@ -26,6 +28,7 @@ function gameStart(){
   scoring();
   timer();
   result.style.display = 'none';
+  inputBox.style.display = 'none';
 }
 
 //set popup character
@@ -146,7 +149,6 @@ function addRec(){
     //add record if it's in top 10
     let tenth = data[9];
     if (timeCount < tenth){
-      let inputBox = document.querySelector('.inputBox');
       let winnerName = inputBox.querySelector('.winnerName');
       let submit = inputBox.querySelector('.submit');
       inputBox.style.display = 'block';
