@@ -11,7 +11,7 @@ let inputBox = document.querySelector('.inputBox');
 let lastHideout = '';
 let gameOver = false;
 let score = 0;
-let topScore = 10;
+let topScore = 100;
 let timeFn = null;
 let timeCount = 0;
 
