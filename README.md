@@ -12,6 +12,12 @@ https://vii120.github.io/shooting-game/
 
 好人與壞人出現的位置及時間皆為隨機變數
 
+### Rank Record
+
+每場遊戲都會記錄完成時間，若打敗前十名，則可輸入名字並列在排名內（record.html）
+
+此功能使用firebase來儲存資料
+
 ### Tools
 
 HTML：使用**Pug**撰寫
