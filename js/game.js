@@ -2,6 +2,7 @@ var scoreBox = document.querySelector('.scoreBox');
 var timeBox = document.querySelector('.timeBox');
 var msgbox = document.querySelector('.msgBox');
 
+var allHideout = document.querySelectorAll('.hideout');
 var badguy = document.querySelectorAll('.badguy');
 var friend = document.querySelectorAll('.friend');
 var result = document.querySelector('.result');
@@ -37,6 +38,11 @@ function upPerson(){
   let temp = Math.floor(Math.random()*10);
   let tempClass = temp>2? 'upBad' : 'upGood';
   hideoutID.classList.add(tempClass);
+  // shooting reaction
+  hideoutID.onclick = function(){
+    if (Array.from(hideoutID.classList).includes('upBad')) shotBad(hideoutID);
+    if (Array.from(hideoutID.classList).includes('upGood')) shotGood(hideoutID);
+  }
   let time = Math.round(Math.random()*(1500-300)+300);
   setTimeout(function(){
     hideoutID.classList.remove(tempClass);
@@ -46,45 +52,45 @@ function upPerson(){
 
 //set popup time
 function upTime(){
-  let allHideout = document.querySelectorAll('.hideout');
-  const random = Math.floor(Math.random()*allHideout.length);
-  if (allHideout[random]===lastHideout){
+  let random = Math.floor(Math.random()*allHideout.length);
+  if (random === lastHideout){
     return upTime()
   }
-  lastHideout = allHideout[random].badguyID;
+  lastHideout = random;
   return allHideout[random];
 }
 
-//shooting reaction: badguy
-for (let i=0; i<badguy.length; i++){
-  badguy[i].badguyID = i;
-  badguy[i].addEventListener('click', shotBad);
-}
-function shotBad(){
+// shooting reaction: badguy
+badguy.forEach(function(item){
+  item.addEventListener('click', function(){
+    shotBad(this.parentNode)
+  })
+})
+function shotBad(hideout){
   msgbox.innerHTML = 'Yeah! You shoot the bag guy!';
   score += 10;
-  this.parentNode.classList.add('scoreAdd');
-  const vm = this;
+  hideout.classList.add('scoreAdd');
   setTimeout(function(){
-    vm.parentNode.classList.remove('scoreAdd');
+    hideout.classList.remove('scoreAdd');
   }, 700);
-  this.parentNode.classList.remove('upBad');
+  hideout.classList.remove('upBad');
   scoring();
 }
 
-//shooting reaction: friend
+// shooting reaction: friend
 friend.forEach(function(item){
-  item.addEventListener('click', shotGood)
+  item.addEventListener('click', function(){
+    shotGood(this.parentNode)
+  })
 })
-function shotGood(){
+function shotGood(hideout){
   msgbox.innerHTML = 'Oops! You shoot the policenam!';
   score -= 10;
-  this.parentNode.classList.add('scoreMinus');
-  const vm = this;
+  hideout.classList.add('scoreMinus');
   setTimeout(function(){
-    vm.parentNode.classList.remove('scoreMinus');
+    hideout.classList.remove('scoreMinus');
   }, 700);
-  this.parentNode.classList.remove('upGood');
+  hideout.classList.remove('upGood');
   scoring();
 }
 
@@ -115,6 +121,7 @@ function timer(){
 function gameover(){
   //stop popup
   gameOver = true;
+  lastHideout = '';
   clearTimeout();
   //stop timer
   clearInterval(timeFn);
