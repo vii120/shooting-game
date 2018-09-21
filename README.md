@@ -25,4 +25,4 @@ HTML：使用**Pug**撰寫
 CSS：使用**SASS**撰寫
 
 ## Reference
-Udemy：[JavaScript Draw on HTML5 Canvas Element](https://www.udemy.com/javascript-html5-canvas-course/)
+Udemy：[JavaScript Game Exercise - WildWest Shootout Game Practice](https://www.udemy.com/learn-javascript-game-exercise/)
